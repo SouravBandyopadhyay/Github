@@ -1,0 +1,41 @@
+.trending_comp {
+  border: 1px solid yellow;
+  width: 25%;
+  margin: auto;
+  justify-content: center;
+  align-items: center;
+}
+#trending_heading {
+  font-size: 1.5rem;
+}
+.avatar_box {
+  /* border: 2px solid pink; */
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(1, auto);
+  gap: 0.5rem;
+}
+.avatar_img_card {
+  /* border: 2px solid salmon; */
+  width: 100%;
+  padding: 0.2rem;
+}
+.avatar_img_card > img {
+  width: 100%;
+  border-radius: 0px 0px 200px 200px;
+  -moz-border-radius: 0px 0px 200px 200px;
+  -webkit-border-radius: 0px 0px 200px 200px;
+  border: 4px solid #c45177;
+  padding: 0.1rem;
+}
+.avatar_box_name {
+  margin: auto;
+  justify-content: center;
+  align-items: center;
+}
+#individual_box {
+  border: 2px solid teal;
+  margin: auto;
+  margin-top: 0.25rem;
+  border-radius: 0.25rem;
+}

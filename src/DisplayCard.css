@@ -1,0 +1,33 @@
+#result_title {
+  font-family: ui-monospace, SFMono-Regular, SF Mono, Menlo, Consolas,
+    Liberation Mono, monospace;
+}
+.master{
+  border: 2px solid teal;
+  width: 70%;
+}
+.result_box {
+  width: 90%;
+  /* border: 2px solid red; */
+  display: flex;
+  gap: 1rem;
+  border-radius: 0.2rem;
+  margin: auto;
+  justify-content: center;
+  align-items: center;
+  margin-top: 0.5rem;
+  border-top: 2px solid black;
+  border-bottom: 2px solid black;
+  margin-top: 0.5rem;
+}
+.result_box > div {
+  width: 50%;
+  margin: auto;
+  justify-content: center;
+  align-items: center;
+  /* border: 2px solid yellow; */
+}
+.result_img>img{
+width: 50%;
+border-radius: 50%;
+}

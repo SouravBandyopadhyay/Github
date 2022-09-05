@@ -1,0 +1,25 @@
+.Github_cards {
+  margin: auto;
+  width: 95%;
+  border: 1px solid red;
+  display: flex;
+  justify-content: space-evenly;
+  gap: 1.5rem;
+}
+#title_github_main {
+  margin: auto;
+  justify-content: center;
+  align-items: center;
+}
+.input_box {
+  width: 40%;
+  border: 1px solid black;
+  justify-content: space-around;
+  display: flex;
+  margin: auto;
+  align-items: center;
+  padding: 0.5rem;
+}
+#input_search {
+  border: 2px solid black transparent;
+}
