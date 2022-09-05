@@ -1,7 +1,7 @@
 .Github_cards {
   margin: auto;
   width: 95%;
-  border: 1px solid red;
+  /* border: 1px solid red; */
   display: flex;
   justify-content: space-evenly;
   gap: 1.5rem;

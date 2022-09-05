@@ -3,7 +3,7 @@ import DisplayCard from "./DisplayCard";
 import "./Github.css";
 import Button from "react-bootstrap/Button";
 import Trending from "./Trending";
-import { FaGithub } from "react-icons/fa";
+import { FaGithub,FaWatchmanMonitoring } from "react-icons/fa";
 import Spinner from "react-bootstrap/Spinner";
 
 function Github() {
@@ -65,7 +65,7 @@ function Github() {
       </h1>
       <h2>Current date is {date}</h2>
       <div>
-        <Spinner animation="border" />
+        {/* <Spinner animation="border" /> */}
       </div>
 
       <div className="input_box">
@@ -92,11 +92,14 @@ function Github() {
       <hr />
       <div className="Github_cards">
         <Trending />
-          {loading ? (
-            <DisplayCard data={data} key={data.id} />
-          ) : (
+        {loading ? (
+          <DisplayCard data={data} key={data.id} />
+        ) : (
+          <div>
+            <h2>Search and Find User <FaWatchmanMonitoring/> </h2>
             <Spinner animation="border" />
-          )}
+          </div>
+        )}
       </div>
     </>
   );
