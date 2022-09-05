@@ -1,6 +1,8 @@
 *{
   font-family:ui-monospace,SFMono-Regular,SF Mono,Menlo,Consolas,Liberation Mono,monospace;
-
+margin: 0;
+padding: 0;
+box-sizing: border-box;
 }
 :root {
   font-family: Inter, Avenir, Helvetica, Arial, sans-serif;

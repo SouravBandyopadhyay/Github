@@ -4,6 +4,8 @@ import "./Github.css";
 import Button from "react-bootstrap/Button";
 import Trending from "./Trending";
 import { FaGithub } from "react-icons/fa";
+import Spinner from "react-bootstrap/Spinner";
+
 function Github() {
   //managing the input value
   const [user, setUser] = useState("");
@@ -14,6 +16,8 @@ function Github() {
 
   const [disabled, setDisabled] = useState(true);
 
+  //Loading funtionality
+  const [loading, setLoading] = useState(false);
   //  Handle submit button and auto disabled funcitonality
   const current = new Date();
   const date = `${current.getDate()}-${
@@ -33,7 +37,7 @@ function Github() {
 
   const onSubmitHandle = (e) => {
     fetch(
-      `https://api.github.com/search/users?q=${user}&page=1&per_page=20&order="asc"`
+      `https://api.github.com/search/users?q=${user}&page=1&per_page=10&order="asc"`
     )
       .then((res) => {
         return res.json();
@@ -41,11 +45,18 @@ function Github() {
       .then((value) => {
         console.log(value.items);
         setData(value.items);
+        setLoading(true);
       })
       .catch((err) => {
         console.log(err);
       });
   };
+
+  useEffect(() => {
+    setTimeout(() => {
+      onsubmit();
+    }, 2000);
+  }, []);
 
   return (
     <>
@@ -53,6 +64,9 @@ function Github() {
         Github Search App <FaGithub />{" "}
       </h1>
       <h2>Current date is {date}</h2>
+      <div>
+        <Spinner animation="border" />
+      </div>
 
       <div className="input_box">
         <div>
@@ -78,7 +92,11 @@ function Github() {
       <hr />
       <div className="Github_cards">
         <Trending />
-        <DisplayCard data={data} key={data.id} />
+          {loading ? (
+            <DisplayCard data={data} key={data.id} />
+          ) : (
+            <Spinner animation="border" />
+          )}
       </div>
     </>
   );
