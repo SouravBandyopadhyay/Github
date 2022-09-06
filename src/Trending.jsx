@@ -1,9 +1,12 @@
 import "./Trending.css";
 import { useEffect, useState } from "react";
-import axios from "axios";
-
+import Button from "react-bootstrap/Button";
 function Trending() {
   const [posts, setPosts] = useState([]);
+  const [noofElements, setnoofElements] = useState(4);
+
+  const [disabled_btn, setDisabled_btn] = useState(false);
+
   const options = {
     method: "GET",
     headers: {
@@ -27,16 +30,27 @@ function Trending() {
   useEffect(() => {
     getAPI();
   }, []);
+
+  const slice = posts.slice(0, noofElements);
+
+  const loadMore = () => {
+    setnoofElements(noofElements + noofElements);
+  };
+
   return (
     <div className="trending_comp">
       <p id="trending_heading">Trending Developers</p>
       <div>
-        {posts.map((el) => (
-          <div key={el.id} id="individual_box">
+        {slice.map((el, index) => (
+          <div key={index} id="individual_box">
             <div className="avatar_box">
               <div className="avatar_box_name">
                 {" "}
                 <p>
+                  {/* <i>
+                    {" "}
+                    <strong>{index}</strong>{" "}
+                  </i> */}
                   <i>
                     <strong>{el.name}</strong>
                   </i>
@@ -50,6 +64,9 @@ function Trending() {
           </div>
         ))}
       </div>
+      <Button variant="dark" onClick={() => loadMore()}>
+        Load More
+      </Button>
     </div>
   );
 }

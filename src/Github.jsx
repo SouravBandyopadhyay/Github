@@ -3,7 +3,7 @@ import DisplayCard from "./DisplayCard";
 import "./Github.css";
 import Button from "react-bootstrap/Button";
 import Trending from "./Trending";
-import { FaGithub,FaWatchmanMonitoring } from "react-icons/fa";
+import { FaGithub, FaWatchmanMonitoring } from "react-icons/fa";
 import Spinner from "react-bootstrap/Spinner";
 
 function Github() {
@@ -37,7 +37,7 @@ function Github() {
 
   const onSubmitHandle = (e) => {
     fetch(
-      `https://api.github.com/search/users?q=${user}&page=1&per_page=10&order="asc"`
+      `https://api.github.com/search/users?q=${user}&page=1&per_page=15&order="asc"`
     )
       .then((res) => {
         return res.json();
@@ -64,9 +64,7 @@ function Github() {
         Github Search App <FaGithub />{" "}
       </h1>
       <h2>Current date is {date}</h2>
-      <div>
-        {/* <Spinner animation="border" /> */}
-      </div>
+      <div>{/* <Spinner animation="border" /> */}</div>
 
       <div className="input_box">
         <div>
@@ -96,7 +94,9 @@ function Github() {
           <DisplayCard data={data} key={data.id} />
         ) : (
           <div>
-            <h2>Search and Find User <FaWatchmanMonitoring/> </h2>
+            <h2>
+              Search and Find User <FaWatchmanMonitoring />{" "}
+            </h2>
             <Spinner animation="border" />
           </div>
         )}
