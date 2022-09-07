@@ -84,7 +84,7 @@ function Github() {
             disabled={disabled}
             variant="dark"
           >
-            Dark
+           Search
           </Button>
         </div>
         {/* <div>
