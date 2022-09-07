@@ -1,12 +1,10 @@
 import "./App.css";
-import Github from "./Github";
-
+import Github from "./Components/Github";
 
 function App() {
   return (
     <div className="App">
       <Github />
-
     </div>
   );
 }

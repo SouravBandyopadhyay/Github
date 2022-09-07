@@ -6,6 +6,7 @@ import Trending from "./Trending";
 import { FaGithub, FaSearch } from "react-icons/fa";
 import Spinner from "react-bootstrap/Spinner";
 import { getCustomFullDateAndTimeWithAmPm } from "@hirishu10/simple-date-time";
+import Form from "react-bootstrap/Form";
 
 function Github() {
   //managing the input value
@@ -40,7 +41,7 @@ function Github() {
 
   const onSubmitHandle = (e) => {
     fetch(
-      `https://api.github.com/search/users?q=${user}&page=1&per_page=10&order="asc"`
+      `https://api.github.com/search/users?q=${user}&page=1&per_page=6&order="asc"`
     )
       .then((res) => {
         return res.json();
@@ -61,12 +62,13 @@ function Github() {
         Github Search App <FaGithub />{" "}
       </h1>
       {/* <h2>Current date is {date} </h2> */}
-      <h2> {timestampLower}</h2>
+      <h2>  {timestampLower}</h2>
       <div>{/* <Spinner animation="border" /> */}</div>
 
       <div className="input_box">
         <div>
-          <input
+          <Form.Control
+            size="lg"
             id="input_search"
             type="text"
             placeholder="Name here"
