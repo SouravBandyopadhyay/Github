@@ -10,7 +10,7 @@
 }
 .result_box {
   width: 90%;
-  /* border: 2px solid red; */
+  border: 4px solid white;
   display: flex;
   gap: 1rem;
   margin: auto;
@@ -19,7 +19,7 @@
   margin-top: 0.5rem;
   margin-top: 1rem;
   margin-bottom: 1rem;
-background-color: #07092e;
+/* background-color: #07092e; */
 color: white;
 border-radius: 0.5rem;
 }
