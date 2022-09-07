@@ -4,9 +4,6 @@ import Button from "react-bootstrap/Button";
 function Trending() {
   const [posts, setPosts] = useState([]);
   const [noofElements, setnoofElements] = useState(4);
-
-  const [disabled_btn, setDisabled_btn] = useState(false);
-
   const options = {
     method: "GET",
     headers: {
@@ -32,7 +29,6 @@ function Trending() {
   }, []);
 
   const slice = posts.slice(0, noofElements);
-
   const loadMore = () => {
     setnoofElements(noofElements + noofElements);
   };

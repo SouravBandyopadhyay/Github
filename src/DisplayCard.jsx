@@ -6,7 +6,7 @@ function DisplayCard({ data }) {
     <div className="master">
       <h1 id="result_title">Result Will be displayed Below</h1>
       {data.map((el) => (
-        <div className="result_box">
+        <div className="result_box" key={el.id}>
           <div className="result_details">
             <h2>
               Github Username: <u>{el.login}</u>{" "}

@@ -3,8 +3,9 @@ import DisplayCard from "./DisplayCard";
 import "./Github.css";
 import Button from "react-bootstrap/Button";
 import Trending from "./Trending";
-import { FaGithub, FaWatchmanMonitoring } from "react-icons/fa";
+import { FaGithub, FaSearch } from "react-icons/fa";
 import Spinner from "react-bootstrap/Spinner";
+import { getCustomFullDateAndTimeWithAmPm } from "@hirishu10/simple-date-time";
 
 function Github() {
   //managing the input value
@@ -19,12 +20,14 @@ function Github() {
   //Loading funtionality
   const [loading, setLoading] = useState(false);
   //  Handle submit button and auto disabled funcitonality
-  const current = new Date();
-  const date = `${current.getDate()}-${
-    current.getMonth() + 1
-  }-${current.getFullYear()}`;
+  // const current = new Date();
+  // const date = `${current.getDate()}-${
+  //   current.getMonth() + 1
+  // }-${current.getFullYear()}`;
 
-  //
+  //clock and time
+  const timestampLower = getCustomFullDateAndTimeWithAmPm();
+  //Handling OnChange
   const onchangeHandle = (e) => {
     // console.log(e.target.value);
     setUser(e.target.value);
@@ -37,13 +40,13 @@ function Github() {
 
   const onSubmitHandle = (e) => {
     fetch(
-      `https://api.github.com/search/users?q=${user}&page=1&per_page=15&order="asc"`
+      `https://api.github.com/search/users?q=${user}&page=1&per_page=10&order="asc"`
     )
       .then((res) => {
         return res.json();
       })
       .then((value) => {
-        console.log(value.items);
+        console.log("data-", value.items);
         setData(value.items);
         setLoading(true);
       })
@@ -52,18 +55,13 @@ function Github() {
       });
   };
 
-  useEffect(() => {
-    setTimeout(() => {
-      onsubmit();
-    }, 2000);
-  }, []);
-
   return (
     <>
       <h1 id="title_github_main">
         Github Search App <FaGithub />{" "}
       </h1>
-      <h2>Current date is {date}</h2>
+      {/* <h2>Current date is {date} </h2> */}
+      <h2> {timestampLower}</h2>
       <div>{/* <Spinner animation="border" /> */}</div>
 
       <div className="input_box">
@@ -91,11 +89,11 @@ function Github() {
       <div className="Github_cards">
         <Trending />
         {loading ? (
-          <DisplayCard data={data} key={data.id} />
+          <DisplayCard data={data} key={data} />
         ) : (
           <div>
             <h2>
-              Search and Find User <FaWatchmanMonitoring />{" "}
+              Search and Find User <FaSearch />{" "}
             </h2>
             <Spinner animation="border" />
           </div>
