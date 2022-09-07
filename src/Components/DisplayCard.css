@@ -13,15 +13,15 @@
   /* border: 2px solid red; */
   display: flex;
   gap: 1rem;
-  border-radius: 0.2rem;
   margin: auto;
   justify-content: center;
   align-items: center;
   margin-top: 0.5rem;
-  border-top: 2px solid black;
-  border-bottom: 2px solid black;
   margin-top: 1rem;
   margin-bottom: 1rem;
+background-color: #07092e;
+color: white;
+border-radius: 0.5rem;
 }
 .result_box > div {
   width: 50%;
@@ -31,6 +31,6 @@
   /* border: 2px solid yellow; */
 }
 .result_img>img{
-width: 50%;
+width: 40%;
 border-radius: 50%;
 }

@@ -7,6 +7,8 @@ import { FaGithub, FaSearch } from "react-icons/fa";
 import Spinner from "react-bootstrap/Spinner";
 import { getCustomFullDateAndTimeWithAmPm } from "@hirishu10/simple-date-time";
 import Form from "react-bootstrap/Form";
+import Dropdown from "react-bootstrap/Dropdown";
+import DropdownButton from "react-bootstrap/DropdownButton";
 
 function Github() {
   //managing the input value
@@ -20,12 +22,10 @@ function Github() {
 
   //Loading funtionality
   const [loading, setLoading] = useState(false);
-  //  Handle submit button and auto disabled funcitonality
-  // const current = new Date();
-  // const date = `${current.getDate()}-${
-  //   current.getMonth() + 1
-  // }-${current.getFullYear()}`;
+  //sorting functionality
+  const [sortBy, setSortBy] = useState("asc");
 
+  //  Handle submit button and auto disabled funcitonality
   //clock and time
   const timestampLower = getCustomFullDateAndTimeWithAmPm();
   //Handling OnChange
@@ -41,13 +41,13 @@ function Github() {
 
   const onSubmitHandle = (e) => {
     fetch(
-      `https://api.github.com/search/users?q=${user}&page=1&per_page=6&order="asc"`
+      `https://api.github.com/search/users?q=${user}&page=1&per_page=6&order=${sortBy}`
     )
       .then((res) => {
         return res.json();
       })
       .then((value) => {
-        console.log("data-", value.items);
+        // console.log("data-", value.items);
         setData(value.items);
         setLoading(true);
       })
@@ -55,14 +55,14 @@ function Github() {
         console.log(err);
       });
   };
-
+  
   return (
     <>
       <h1 id="title_github_main">
         Github Search App <FaGithub />{" "}
       </h1>
       {/* <h2>Current date is {date} </h2> */}
-      <h2>  {timestampLower}</h2>
+      <h2> {timestampLower}</h2>
       <div>{/* <Spinner animation="border" /> */}</div>
 
       <div className="input_box">
@@ -85,6 +85,12 @@ function Github() {
             Dark
           </Button>
         </div>
+        {/* <div>
+          <DropdownButton id="dropdown-basic-button" title="Sort User By">
+            <Dropdown.Item onClick={()=>setSortBy('asc')} >Ascending</Dropdown.Item>
+            <Dropdown.Item onClick={()=>setSortBy('desc')} >Descending</Dropdown.Item>
+          </DropdownButton>
+        </div> */}
       </div>
 
       <hr />
