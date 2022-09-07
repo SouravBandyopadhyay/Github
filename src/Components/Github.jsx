@@ -55,7 +55,9 @@ function Github() {
         console.log(err);
       });
   };
-  
+  // useEffect(()=>{
+  //   onSubmitHandle()
+  // },[sortBy])
   return (
     <>
       <h1 id="title_github_main">
