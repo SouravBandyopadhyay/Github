@@ -32,7 +32,7 @@ function Github() {
   const onchangeHandle = (e) => {
     // console.log(e.target.value);
     setUser(e.target.value);
-    if (e.target.value.length > 0) {
+    if (e.target.value.trim().length > 0) {
       setDisabled(false);
     } else {
       setDisabled(true);
